@@ -14,6 +14,18 @@
 		3F0A2F3B2B75FB2D00F7C8CF /* RegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A2F3A2B75FB2D00F7C8CF /* RegViewController.swift */; };
 		3F0A2F3D2B75FC7B00F7C8CF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A2F3C2B75FC7B00F7C8CF /* BaseViewController.swift */; };
 		3F0A2F402B75FD0400F7C8CF /* UIColor + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A2F3F2B75FD0400F7C8CF /* UIColor + ext.swift */; };
+		3F7C18DE2B779B9700304EB0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C18DD2B779B9700304EB0 /* LoginViewController.swift */; };
+		3F7C18E02B779CE500304EB0 /* UIButton + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C18DF2B779CE500304EB0 /* UIButton + ext.swift */; };
+		3F7C18E22B77AADC00304EB0 /* CafeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C18E12B77AADC00304EB0 /* CafeListViewController.swift */; };
+		3F7C18EC2B77AD6E00304EB0 /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C18EB2B77AD6E00304EB0 /* Cafe.swift */; };
+		3F7C18EE2B77B5F800304EB0 /* CafeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C18ED2B77B5F800304EB0 /* CafeTableViewCell.swift */; };
+		3F8136472B762C3C00F4D97C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3F8136462B762C3C00F4D97C /* SnapKit */; };
+		3F8136492B762C6700F4D97C /* UIView + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8136482B762C6700F4D97C /* UIView + ext.swift */; };
+		3F81364B2B763C5900F4D97C /* TextFieldWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81364A2B763C5900F4D97C /* TextFieldWithPadding.swift */; };
+		3F81364E2B7646D400F4D97C /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81364D2B7646D400F4D97C /* ApiService.swift */; };
+		3F8136512B76477200F4D97C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3F8136502B76477200F4D97C /* Alamofire */; };
+		3F8136542B76484500F4D97C /* AuthParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8136532B76484500F4D97C /* AuthParameters.swift */; };
+		3F8136562B764C3E00F4D97C /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8136552B764C3E00F4D97C /* AuthResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +38,16 @@
 		3F0A2F3A2B75FB2D00F7C8CF /* RegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegViewController.swift; sourceTree = "<group>"; };
 		3F0A2F3C2B75FC7B00F7C8CF /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3F0A2F3F2B75FD0400F7C8CF /* UIColor + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + ext.swift"; sourceTree = "<group>"; };
+		3F7C18DD2B779B9700304EB0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3F7C18DF2B779CE500304EB0 /* UIButton + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + ext.swift"; sourceTree = "<group>"; };
+		3F7C18E12B77AADC00304EB0 /* CafeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeListViewController.swift; sourceTree = "<group>"; };
+		3F7C18EB2B77AD6E00304EB0 /* Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafe.swift; sourceTree = "<group>"; };
+		3F7C18ED2B77B5F800304EB0 /* CafeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeTableViewCell.swift; sourceTree = "<group>"; };
+		3F8136482B762C6700F4D97C /* UIView + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + ext.swift"; sourceTree = "<group>"; };
+		3F81364A2B763C5900F4D97C /* TextFieldWithPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithPadding.swift; sourceTree = "<group>"; };
+		3F81364D2B7646D400F4D97C /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		3F8136532B76484500F4D97C /* AuthParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthParameters.swift; sourceTree = "<group>"; };
+		3F8136552B764C3E00F4D97C /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F8136472B762C3C00F4D97C /* SnapKit in Frameworks */,
+				3F8136512B76477200F4D97C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +68,7 @@
 			children = (
 				3F0A2F252B75FA3C00F7C8CF /* CofeeApp */,
 				3F0A2F242B75FA3C00F7C8CF /* Products */,
+				3F8136452B762C3C00F4D97C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,24 +83,121 @@
 		3F0A2F252B75FA3C00F7C8CF /* CofeeApp */ = {
 			isa = PBXGroup;
 			children = (
-				3F0A2F3E2B75FCF500F7C8CF /* Extension */,
-				3F0A2F262B75FA3C00F7C8CF /* AppDelegate.swift */,
-				3F0A2F282B75FA3C00F7C8CF /* SceneDelegate.swift */,
-				3F0A2F2F2B75FA4000F7C8CF /* Assets.xcassets */,
-				3F0A2F312B75FA4000F7C8CF /* LaunchScreen.storyboard */,
-				3F0A2F342B75FA4000F7C8CF /* Info.plist */,
-				3F0A2F3A2B75FB2D00F7C8CF /* RegViewController.swift */,
-				3F0A2F3C2B75FC7B00F7C8CF /* BaseViewController.swift */,
+				3F7C18E92B77AB3400304EB0 /* System */,
+				3F81364C2B7646C700F4D97C /* Services */,
+				3F7C18E32B77AAE400304EB0 /* Controllers */,
+				3F8136522B76480300F4D97C /* Models */,
+				3F0A2F3E2B75FCF500F7C8CF /* Extensions */,
+				3F7C18E82B77AB2B00304EB0 /* SupportingFiles */,
 			);
 			path = CofeeApp;
 			sourceTree = "<group>";
 		};
-		3F0A2F3E2B75FCF500F7C8CF /* Extension */ = {
+		3F0A2F3E2B75FCF500F7C8CF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				3F0A2F3F2B75FD0400F7C8CF /* UIColor + ext.swift */,
+				3F8136482B762C6700F4D97C /* UIView + ext.swift */,
+				3F7C18DF2B779CE500304EB0 /* UIButton + ext.swift */,
 			);
-			path = Extension;
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3F7C18E32B77AAE400304EB0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3F7C18E42B77AAED00304EB0 /* Base */,
+				3F7C18EA2B77AB4E00304EB0 /* Components */,
+				3F7C18E52B77AAF600304EB0 /* Reg */,
+				3F7C18E62B77AB0300304EB0 /* Login */,
+				3F7C18E72B77AB1600304EB0 /* CafeList */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3F7C18E42B77AAED00304EB0 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				3F0A2F3C2B75FC7B00F7C8CF /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		3F7C18E52B77AAF600304EB0 /* Reg */ = {
+			isa = PBXGroup;
+			children = (
+				3F0A2F3A2B75FB2D00F7C8CF /* RegViewController.swift */,
+			);
+			path = Reg;
+			sourceTree = "<group>";
+		};
+		3F7C18E62B77AB0300304EB0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3F7C18DD2B779B9700304EB0 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3F7C18E72B77AB1600304EB0 /* CafeList */ = {
+			isa = PBXGroup;
+			children = (
+				3F7C18E12B77AADC00304EB0 /* CafeListViewController.swift */,
+				3F7C18ED2B77B5F800304EB0 /* CafeTableViewCell.swift */,
+			);
+			path = CafeList;
+			sourceTree = "<group>";
+		};
+		3F7C18E82B77AB2B00304EB0 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				3F0A2F2F2B75FA4000F7C8CF /* Assets.xcassets */,
+				3F0A2F312B75FA4000F7C8CF /* LaunchScreen.storyboard */,
+				3F0A2F342B75FA4000F7C8CF /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		3F7C18E92B77AB3400304EB0 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				3F0A2F282B75FA3C00F7C8CF /* SceneDelegate.swift */,
+				3F0A2F262B75FA3C00F7C8CF /* AppDelegate.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		3F7C18EA2B77AB4E00304EB0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3F81364A2B763C5900F4D97C /* TextFieldWithPadding.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		3F8136452B762C3C00F4D97C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F81364C2B7646C700F4D97C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3F81364D2B7646D400F4D97C /* ApiService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3F8136522B76480300F4D97C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3F8136532B76484500F4D97C /* AuthParameters.swift */,
+				3F8136552B764C3E00F4D97C /* AuthResponse.swift */,
+				3F7C18EB2B77AD6E00304EB0 /* Cafe.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,6 +216,10 @@
 			dependencies = (
 			);
 			name = CofeeApp;
+			packageProductDependencies = (
+				3F8136462B762C3C00F4D97C /* SnapKit */,
+				3F8136502B76477200F4D97C /* Alamofire */,
+			);
 			productName = CofeeApp;
 			productReference = 3F0A2F232B75FA3C00F7C8CF /* CofeeApp.app */;
 			productType = "com.apple.product-type.application";
@@ -124,6 +250,7 @@
 			mainGroup = 3F0A2F1A2B75FA3C00F7C8CF;
 			packageReferences = (
 				3F0A2F432B760FE800F7C8CF /* XCRemoteSwiftPackageReference "SnapKit" */,
+				3F81364F2B76477200F4D97C /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 3F0A2F242B75FA3C00F7C8CF /* Products */;
 			projectDirPath = "";
@@ -151,11 +278,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F81364B2B763C5900F4D97C /* TextFieldWithPadding.swift in Sources */,
+				3F7C18E02B779CE500304EB0 /* UIButton + ext.swift in Sources */,
 				3F0A2F272B75FA3C00F7C8CF /* AppDelegate.swift in Sources */,
 				3F0A2F3D2B75FC7B00F7C8CF /* BaseViewController.swift in Sources */,
+				3F8136542B76484500F4D97C /* AuthParameters.swift in Sources */,
+				3F7C18E22B77AADC00304EB0 /* CafeListViewController.swift in Sources */,
+				3F7C18EE2B77B5F800304EB0 /* CafeTableViewCell.swift in Sources */,
+				3F7C18EC2B77AD6E00304EB0 /* Cafe.swift in Sources */,
 				3F0A2F3B2B75FB2D00F7C8CF /* RegViewController.swift in Sources */,
 				3F0A2F402B75FD0400F7C8CF /* UIColor + ext.swift in Sources */,
+				3F8136492B762C6700F4D97C /* UIView + ext.swift in Sources */,
+				3F81364E2B7646D400F4D97C /* ApiService.swift in Sources */,
+				3F8136562B764C3E00F4D97C /* AuthResponse.swift in Sources */,
 				3F0A2F292B75FA3C00F7C8CF /* SceneDelegate.swift in Sources */,
+				3F7C18DE2B779B9700304EB0 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +433,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7YZ28BX3VS;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CofeeApp/Info.plist;
+				INFOPLIST_FILE = CofeeApp/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -327,7 +464,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7YZ28BX3VS;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CofeeApp/Info.plist;
+				INFOPLIST_FILE = CofeeApp/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -377,11 +514,32 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
-				branch = develop;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		3F81364F2B76477200F4D97C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3F8136462B762C3C00F4D97C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F0A2F432B760FE800F7C8CF /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		3F8136502B76477200F4D97C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F81364F2B76477200F4D97C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3F0A2F1B2B75FA3C00F7C8CF /* Project object */;
 }

@@ -28,9 +28,13 @@ extension UIColor {
     
     static let navBarBackgroundColor: UIColor = .init(hexString: "FAF9F9")
     static let navBarShadowColor: UIColor = .init(hexString: "C2C2C2")
+    
     static let textDefaultColor: UIColor = .init(hexString: "846340")
     static let textSecondColor: UIColor = .init(hexString: "AF9479")
+    
     static let buttonBackgroundColor: UIColor = .init(hexString: "342D1A")
+    static let buttonTextColor: UIColor = .init(hexString: "F6E5D1")
+    
     static let tableCellBackgroundColor: UIColor = .init(hexString: "F6E5D1")
     
 }

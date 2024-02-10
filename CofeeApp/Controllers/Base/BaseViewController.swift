@@ -12,9 +12,11 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
-        
         configureNavBar()
+        
+        setupViews()
+        constraintViews()
+        configureAppearance()
     }
     
     private func configureNavBar() {
@@ -28,4 +30,14 @@ class BaseViewController: UIViewController {
         navigationBar?.scrollEdgeAppearance = navBarAppearance
         navigationBar?.isTranslucent = false
     }
+}
+
+// MARK: - Setup actions
+@objc
+extension BaseViewController {
+    func setupViews() {}
+    func constraintViews() {
+        view.backgroundColor = .white
+    }
+    func configureAppearance() {}
 }
