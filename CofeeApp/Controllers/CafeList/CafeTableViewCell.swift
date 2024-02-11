@@ -8,12 +8,12 @@
 import UIKit
 
 class CafeTableViewCell: UITableViewCell {
-    func configure(item: Cafe) {
+    func configure(item: Cafe, distance: String = "") {
         var configuration = defaultContentConfiguration()
         configuration.text = item.name
         configuration.textProperties.color = .textDefaultColor
         configuration.textProperties.font = .systemFont(ofSize: 18, weight: .bold)
-        configuration.secondaryText = "1 км от вас"
+        configuration.secondaryText = distance
         configuration.secondaryTextProperties.color = .textSecondColor
         configuration.secondaryTextProperties.font = .systemFont(ofSize: 14)
         contentConfiguration = configuration

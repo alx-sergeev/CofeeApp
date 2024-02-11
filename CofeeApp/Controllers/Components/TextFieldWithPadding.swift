@@ -12,13 +12,14 @@ class TextFieldWithPadding: UITextField {
     init(isSecure: Bool = false) {
         super.init(frame: CGRect())
         
-        self.isSecureTextEntry = isSecure
+        autocapitalizationType = .none
+        isSecureTextEntry = isSecure
         
-        self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor.textDefaultColor.cgColor
-        self.layer.cornerRadius = 20
-        self.textColor = .textDefaultColor
-        self.font = .systemFont(ofSize: 18)
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.textDefaultColor.cgColor
+        layer.cornerRadius = 20
+        textColor = .textDefaultColor
+        font = .systemFont(ofSize: 18)
     }
     
     required init?(coder: NSCoder) {

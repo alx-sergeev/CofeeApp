@@ -26,6 +26,7 @@
 		3F8136512B76477200F4D97C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3F8136502B76477200F4D97C /* Alamofire */; };
 		3F8136542B76484500F4D97C /* AuthParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8136532B76484500F4D97C /* AuthParameters.swift */; };
 		3F8136562B764C3E00F4D97C /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8136552B764C3E00F4D97C /* AuthResponse.swift */; };
+		60B106C5ABC51570229480B7 /* Pods_CofeeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFCCF289174E1320F5E8E508 /* Pods_CofeeApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,9 @@
 		3F81364D2B7646D400F4D97C /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		3F8136532B76484500F4D97C /* AuthParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthParameters.swift; sourceTree = "<group>"; };
 		3F8136552B764C3E00F4D97C /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		5E73076CAA52E885C7A7C7AA /* Pods-CofeeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CofeeApp.release.xcconfig"; path = "Target Support Files/Pods-CofeeApp/Pods-CofeeApp.release.xcconfig"; sourceTree = "<group>"; };
+		E3F1C1A85477D84851860235 /* Pods-CofeeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CofeeApp.debug.xcconfig"; path = "Target Support Files/Pods-CofeeApp/Pods-CofeeApp.debug.xcconfig"; sourceTree = "<group>"; };
+		EFCCF289174E1320F5E8E508 /* Pods_CofeeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CofeeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,7 @@
 			files = (
 				3F8136472B762C3C00F4D97C /* SnapKit in Frameworks */,
 				3F8136512B76477200F4D97C /* Alamofire in Frameworks */,
+				60B106C5ABC51570229480B7 /* Pods_CofeeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +74,7 @@
 				3F0A2F252B75FA3C00F7C8CF /* CofeeApp */,
 				3F0A2F242B75FA3C00F7C8CF /* Products */,
 				3F8136452B762C3C00F4D97C /* Frameworks */,
+				BBDDE5B7972D065287A9D2F2 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,6 +184,7 @@
 		3F8136452B762C3C00F4D97C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EFCCF289174E1320F5E8E508 /* Pods_CofeeApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -200,6 +207,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		BBDDE5B7972D065287A9D2F2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E3F1C1A85477D84851860235 /* Pods-CofeeApp.debug.xcconfig */,
+				5E73076CAA52E885C7A7C7AA /* Pods-CofeeApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -207,9 +223,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F0A2F372B75FA4000F7C8CF /* Build configuration list for PBXNativeTarget "CofeeApp" */;
 			buildPhases = (
+				5C9421D7F5E2CA04EA31E2E2 /* [CP] Check Pods Manifest.lock */,
 				3F0A2F1F2B75FA3C00F7C8CF /* Sources */,
 				3F0A2F202B75FA3C00F7C8CF /* Frameworks */,
 				3F0A2F212B75FA3C00F7C8CF /* Resources */,
+				1887EA0021C99E8CE311F272 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -272,6 +290,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1887EA0021C99E8CE311F272 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CofeeApp/Pods-CofeeApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CofeeApp/Pods-CofeeApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CofeeApp/Pods-CofeeApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C9421D7F5E2CA04EA31E2E2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CofeeApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3F0A2F1F2B75FA3C00F7C8CF /* Sources */ = {
@@ -426,6 +486,7 @@
 		};
 		3F0A2F382B75FA4000F7C8CF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3F1C1A85477D84851860235 /* Pods-CofeeApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -434,6 +495,7 @@
 				DEVELOPMENT_TEAM = 7YZ28BX3VS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CofeeApp/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Предоставьте пожалуйста доступ к вашей геолокации для определения расстояния до кофеен";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -457,6 +519,7 @@
 		};
 		3F0A2F392B75FA4000F7C8CF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E73076CAA52E885C7A7C7AA /* Pods-CofeeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -465,6 +528,7 @@
 				DEVELOPMENT_TEAM = 7YZ28BX3VS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CofeeApp/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Предоставьте пожалуйста доступ к вашей геолокации для определения расстояния до кофеен";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
