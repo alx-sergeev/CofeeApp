@@ -25,12 +25,6 @@ class CafeListViewController: BaseViewController {
     private let mapButton: UIButton = .createButton(title: "На карте")
     private let mapButtonHeight: Int = 48
     
-//    private var items: [Cafe] = [
-//        Cafe(id: 1, name: "Арома", point: .init(latitude: "44.43000000000000", longitude: "44.43000000000000")),
-//        Cafe(id: 2, name: "Кофе есть", point: .init(latitude: "44.72452500000000", longitude: "44.72452500000000")),
-//        Cafe(id: 3, name: "ЧайКофф", point: .init(latitude: "44.83000000000000", longitude: "44.83000000000000")),
-//    ]
-    
     private var items: [Cafe] = [] {
         didSet {
             tableView.reloadData()
@@ -42,13 +36,6 @@ class CafeListViewController: BaseViewController {
         super.viewDidLoad()
         
         title = "Ближайшие кофейни"
-        
-        // Table
-        tableView.backgroundColor = .white
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(CafeTableViewCell.self, forCellReuseIdentifier: cellID)
-        tableView.separatorStyle = .none
         
         // Location
         startupLocation()
@@ -114,6 +101,20 @@ extension CafeListViewController {
             make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
         }
     }
+    
+    override func configureAppearance() {
+        super.configureAppearance()
+        
+        // Table
+        tableView.backgroundColor = .white
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(CafeTableViewCell.self, forCellReuseIdentifier: cellID)
+        tableView.separatorStyle = .none
+        
+        // Button
+        mapButton.addTarget(self, action: #selector(mapButtonPressed), for: .touchUpInside)
+    }
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -152,5 +153,18 @@ extension CafeListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 71
+    }
+}
+
+// MARK: - Actions
+extension CafeListViewController {
+    @objc
+    private func mapButtonPressed() {
+        guard !items.isEmpty else { return }
+        
+        let mapVC = MapViewController()
+        mapVC.cafeItems = items
+        
+        self.navigationController?.pushViewController(mapVC, animated: true)
     }
 }

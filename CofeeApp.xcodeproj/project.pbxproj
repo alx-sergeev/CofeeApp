@@ -26,6 +26,7 @@
 		3F8136512B76477200F4D97C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3F8136502B76477200F4D97C /* Alamofire */; };
 		3F8136542B76484500F4D97C /* AuthParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8136532B76484500F4D97C /* AuthParameters.swift */; };
 		3F8136562B764C3E00F4D97C /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8136552B764C3E00F4D97C /* AuthResponse.swift */; };
+		3FF27F1A2B78CB8000CC1EA5 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF27F192B78CB7F00CC1EA5 /* MapViewController.swift */; };
 		60B106C5ABC51570229480B7 /* Pods_CofeeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFCCF289174E1320F5E8E508 /* Pods_CofeeApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		3F81364D2B7646D400F4D97C /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		3F8136532B76484500F4D97C /* AuthParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthParameters.swift; sourceTree = "<group>"; };
 		3F8136552B764C3E00F4D97C /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		3FF27F192B78CB7F00CC1EA5 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5E73076CAA52E885C7A7C7AA /* Pods-CofeeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CofeeApp.release.xcconfig"; path = "Target Support Files/Pods-CofeeApp/Pods-CofeeApp.release.xcconfig"; sourceTree = "<group>"; };
 		E3F1C1A85477D84851860235 /* Pods-CofeeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CofeeApp.debug.xcconfig"; path = "Target Support Files/Pods-CofeeApp/Pods-CofeeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EFCCF289174E1320F5E8E508 /* Pods_CofeeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CofeeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,7 +93,7 @@
 			children = (
 				3F7C18E92B77AB3400304EB0 /* System */,
 				3F81364C2B7646C700F4D97C /* Services */,
-				3F7C18E32B77AAE400304EB0 /* Controllers */,
+				3F7C18E32B77AAE400304EB0 /* ViewControllers */,
 				3F8136522B76480300F4D97C /* Models */,
 				3F0A2F3E2B75FCF500F7C8CF /* Extensions */,
 				3F7C18E82B77AB2B00304EB0 /* SupportingFiles */,
@@ -109,7 +111,7 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		3F7C18E32B77AAE400304EB0 /* Controllers */ = {
+		3F7C18E32B77AAE400304EB0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				3F7C18E42B77AAED00304EB0 /* Base */,
@@ -117,8 +119,9 @@
 				3F7C18E52B77AAF600304EB0 /* Reg */,
 				3F7C18E62B77AB0300304EB0 /* Login */,
 				3F7C18E72B77AB1600304EB0 /* CafeList */,
+				3FF27F182B78CB5A00CC1EA5 /* Map */,
 			);
-			path = Controllers;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		3F7C18E42B77AAED00304EB0 /* Base */ = {
@@ -205,6 +208,14 @@
 				3F7C18EB2B77AD6E00304EB0 /* Cafe.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3FF27F182B78CB5A00CC1EA5 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				3FF27F192B78CB7F00CC1EA5 /* MapViewController.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		BBDDE5B7972D065287A9D2F2 /* Pods */ = {
@@ -353,6 +364,7 @@
 				3F8136562B764C3E00F4D97C /* AuthResponse.swift in Sources */,
 				3F0A2F292B75FA3C00F7C8CF /* SceneDelegate.swift in Sources */,
 				3F7C18DE2B779B9700304EB0 /* LoginViewController.swift in Sources */,
+				3FF27F1A2B78CB8000CC1EA5 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //let regVC = RegViewController()
         //let cofeeListVC = CafeListViewController()
         let loginVC = LoginViewController()
+        //let mapVC = MapViewController()
         let navVC = UINavigationController(rootViewController: loginVC)
         
         window = UIWindow(windowScene: windowScene)
