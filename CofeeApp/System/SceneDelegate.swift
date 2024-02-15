@@ -19,10 +19,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         //let regVC = RegViewController()
-        //let cofeeListVC = CafeListViewController()
-        let loginVC = LoginViewController()
+        let cofeeListVC = CafeListViewController()
+        //let loginVC = LoginViewController()
         //let mapVC = MapViewController()
-        let navVC = UINavigationController(rootViewController: loginVC)
+        //let menuVC = MenuViewController()
+        let navVC = UINavigationController(rootViewController: cofeeListVC)
         
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = navVC

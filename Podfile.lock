@@ -1,16 +1,22 @@
 PODS:
+  - SDWebImage (5.18.10):
+    - SDWebImage/Core (= 5.18.10)
+  - SDWebImage/Core (5.18.10)
   - YandexMapsMobile (4.4.0-lite)
 
 DEPENDENCIES:
+  - SDWebImage (~> 5.0)
   - YandexMapsMobile (= 4.4.0-lite)
 
 SPEC REPOS:
   trunk:
+    - SDWebImage
     - YandexMapsMobile
 
 SPEC CHECKSUMS:
+  SDWebImage: fc8f2d48bbfd72ef39d70e981bd24a3f3be53fec
   YandexMapsMobile: 74934971bbd3716e6daecfebed696c07b83b6b22
 
-PODFILE CHECKSUM: 5e5475052e9c7c5e91b833371d258a9ebd6626ad
+PODFILE CHECKSUM: 25f5fa4ea1c101c2fe3a5a72f89691229e60f915
 
 COCOAPODS: 1.14.2

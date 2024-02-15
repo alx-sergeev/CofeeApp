@@ -36,8 +36,8 @@ class BaseViewController: UIViewController {
 @objc
 extension BaseViewController {
     func setupViews() {}
-    func constraintViews() {
+    func constraintViews() {}
+    func configureAppearance() {
         view.backgroundColor = .white
     }
-    func configureAppearance() {}
 }

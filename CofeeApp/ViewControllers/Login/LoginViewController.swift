@@ -94,24 +94,15 @@ extension LoginViewController {
         
         view.addSubview(stackView)
         
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(emailStackView)
         stackView.addArrangedSubview(pswStackView)
         stackView.addArrangedSubview(submitButton)
         
-        emailLabel.translatesAutoresizingMaskIntoConstraints = false
-        emailTextField.translatesAutoresizingMaskIntoConstraints = false
-        emailStackView.translatesAutoresizingMaskIntoConstraints = false
         emailStackView.addArrangedSubview(emailLabel)
         emailStackView.addArrangedSubview(emailTextField)
         
-        pswLabel.translatesAutoresizingMaskIntoConstraints = false
-        pswTextField.translatesAutoresizingMaskIntoConstraints = false
-        pswStackView.translatesAutoresizingMaskIntoConstraints = false
         pswStackView.addArrangedSubview(pswLabel)
         pswStackView.addArrangedSubview(pswTextField)
-        
-        submitButton.translatesAutoresizingMaskIntoConstraints = false
     }
     
     override func constraintViews() {

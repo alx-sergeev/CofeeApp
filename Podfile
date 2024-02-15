@@ -7,5 +7,6 @@ target 'CofeeApp' do
 
   # Pods for CofeeApp
 pod 'YandexMapsMobile', '4.4.0-lite'
+pod 'SDWebImage', '~> 5.0'
 
 end

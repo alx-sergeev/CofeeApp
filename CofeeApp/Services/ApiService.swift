@@ -81,6 +81,26 @@ final class ApiService {
             }
         }
     }
+    
+    func getMenuByID(_ id: Int, completion: @escaping ([Product]) -> ()) {
+        guard let authToken = userDefaults.string(forKey: authTokenKey) else { return }
+        
+        let headers: HTTPHeaders = [.contentType("application/json"), .authorization(authToken)]
+        let additionalApiPath = "\(id)/menu"
+        
+        AF.request(ApiService.ApiPath.menu + additionalApiPath,
+                   method: .get,
+                   headers: headers
+        )
+        .responseDecodable(of: [Product].self) { response in
+            switch response.result {
+            case .success(let value):
+                completion(value)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 // MARK: - ApiPath
@@ -91,5 +111,6 @@ extension ApiService {
         static let registration = url + "/auth/register"
         static let login = url + "/auth/login"
         static let locations = url + "/locations"
+        static let menu = url + "/location/"
     }
 }

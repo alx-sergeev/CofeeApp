@@ -114,33 +114,21 @@ extension RegViewController {
     override func setupViews() {
         super.setupViews()
         
-        view.addSubview(stackView)
+        view.addViews(stackView)
         
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(emailStackView)
         stackView.addArrangedSubview(pswStackView)
         stackView.addArrangedSubview(pswRepeatStackView)
         stackView.addArrangedSubview(submitButton)
         
-        emailLabel.translatesAutoresizingMaskIntoConstraints = false
-        emailTextField.translatesAutoresizingMaskIntoConstraints = false
-        emailStackView.translatesAutoresizingMaskIntoConstraints = false
         emailStackView.addArrangedSubview(emailLabel)
         emailStackView.addArrangedSubview(emailTextField)
         
-        pswLabel.translatesAutoresizingMaskIntoConstraints = false
-        pswTextField.translatesAutoresizingMaskIntoConstraints = false
-        pswStackView.translatesAutoresizingMaskIntoConstraints = false
         pswStackView.addArrangedSubview(pswLabel)
         pswStackView.addArrangedSubview(pswTextField)
         
-        pswRepeatLabel.translatesAutoresizingMaskIntoConstraints = false
-        pswRepeatTextField.translatesAutoresizingMaskIntoConstraints = false
-        pswRepeatStackView.translatesAutoresizingMaskIntoConstraints = false
         pswRepeatStackView.addArrangedSubview(pswRepeatLabel)
         pswRepeatStackView.addArrangedSubview(pswRepeatTextField)
-        
-        submitButton.translatesAutoresizingMaskIntoConstraints = false
     }
     
     override func constraintViews() {

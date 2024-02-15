@@ -149,6 +149,12 @@ extension CafeListViewController: UITableViewDataSource {
 extension CafeListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let menuVC = MenuViewController()
+        let itemSelected = items[indexPath.row]
+        menuVC.cafeId = itemSelected.id
+        
+        navigationController?.pushViewController(menuVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
