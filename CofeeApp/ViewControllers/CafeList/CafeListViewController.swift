@@ -21,6 +21,11 @@ class CafeListViewController: BaseViewController {
     
     private let tableView = UITableView()
     private let cellID = "cafeCell"
+    private let tableVisibleCellCount: CGFloat = 6
+    private let tableCellHeight: CGFloat = 77
+    private var tableHeight: CGFloat {
+        tableVisibleCellCount * tableCellHeight
+    }
     
     private let mapButton: UIButton = .createButton(title: "На карте")
     private let mapButtonHeight: Int = 48
@@ -88,17 +93,17 @@ extension CafeListViewController {
         super.constraintViews()
         
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
-            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
-            make.bottom.equalTo(mapButton.snp.top).inset(-20)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(15)
+            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).inset(10)
+            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).inset(10)
+            make.height.equalTo(tableHeight)
         }
         
         mapButton.snp.makeConstraints { make in
             make.height.equalTo(mapButtonHeight)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
-            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
+            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).inset(16)
+            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).inset(16)
         }
     }
     
@@ -148,8 +153,6 @@ extension CafeListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension CafeListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
         let menuVC = MenuViewController()
         let itemSelected = items[indexPath.row]
         menuVC.cafeId = itemSelected.id
@@ -158,7 +161,7 @@ extension CafeListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 71
+        return tableCellHeight
     }
 }
 

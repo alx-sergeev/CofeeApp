@@ -24,14 +24,6 @@ class MenuViewController: BaseViewController {
     private let orderButton: UIButton = .createButton(title: "Перейти к оплате")
     private let orderButtonHeight: Int = 48
     
-//    private let items: [Product] = [
-//        .init(id: 1, name: "Эспрессо", imageURL: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Espresso_and_napolitains.jpg", price: 110),
-//        .init(id: 2, name: "Капучино", imageURL: "https://upload.wikimedia.org/wikipedia/commons/1/16/Classic_Cappuccino.jpg", price: 180),
-//        .init(id: 3, name: "Горячий шоколад", imageURL: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Hei%C3%9Fe_Schokolade.jpg", price: 220),
-//        .init(id: 4, name: "Эспрессо", imageURL: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Espresso_and_napolitains.jpg", price: 110),
-//        .init(id: 5, name: "Капучино", imageURL: "https://upload.wikimedia.org/wikipedia/commons/1/16/Classic_Cappuccino.jpg", price: 180),
-//        .init(id: 6, name: "Горячий шоколад", imageURL: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Hei%C3%9Fe_Schokolade.jpg", price: 220)
-//    ]
     var cafeId: Int?
     private var items: [Product] = [] {
         didSet {
@@ -50,6 +42,8 @@ class MenuViewController: BaseViewController {
         collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: collectionViewCellID)
         
         getMenu()
+        
+        orderButton.addTarget(self, action: #selector(orderButtonPressed), for: .touchUpInside)
     }
     
     
@@ -95,6 +89,7 @@ extension MenuViewController {
     }
 }
 
+// MARK: - UICollectionViewDataSource
 extension MenuViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
@@ -118,6 +113,7 @@ extension MenuViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
 extension MenuViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemsPerRow: CGFloat = 2
@@ -138,5 +134,14 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return padding
+    }
+}
+
+// MARK: - Additional actions
+extension MenuViewController {
+    @objc
+    private func orderButtonPressed() {
+        let orderVC = OrderViewController()
+        self.navigationController?.pushViewController(orderVC, animated: true)
     }
 }

@@ -29,6 +29,8 @@
 		3F8FDEBD2B7E02FE00BE9EEE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8FDEBC2B7E02FE00BE9EEE /* CoreDataManager.swift */; };
 		3F8FDEC02B7E035000BE9EEE /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F8FDEBE2B7E035000BE9EEE /* CoreDataModel.xcdatamodeld */; };
 		3F8FDEC82B7E12A600BE9EEE /* ProductOrder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8FDEC72B7E12A600BE9EEE /* ProductOrder+CoreDataClass.swift */; };
+		3F8FDECB2B7E382900BE9EEE /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8FDECA2B7E382900BE9EEE /* OrderViewController.swift */; };
+		3F8FDECD2B7E406300BE9EEE /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8FDECC2B7E406300BE9EEE /* OrderTableViewCell.swift */; };
 		3FEA88702B7A4C7300F550B0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEA886F2B7A4C7300F550B0 /* MenuViewController.swift */; };
 		3FEA88722B7A544900F550B0 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEA88712B7A544900F550B0 /* Product.swift */; };
 		3FEA88742B7A56F200F550B0 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEA88732B7A56F200F550B0 /* ProductCollectionViewCell.swift */; };
@@ -59,6 +61,8 @@
 		3F8FDEBC2B7E02FE00BE9EEE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3F8FDEBF2B7E035000BE9EEE /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		3F8FDEC72B7E12A600BE9EEE /* ProductOrder+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProductOrder+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3F8FDECA2B7E382900BE9EEE /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		3F8FDECC2B7E406300BE9EEE /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		3FEA886F2B7A4C7300F550B0 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		3FEA88712B7A544900F550B0 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		3FEA88732B7A56F200F550B0 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -103,7 +107,6 @@
 		3F0A2F252B75FA3C00F7C8CF /* CofeeApp */ = {
 			isa = PBXGroup;
 			children = (
-				3F28C47C2B7D00B700D95734 /* CoreData */,
 				3F7C18E92B77AB3400304EB0 /* System */,
 				3F81364C2B7646C700F4D97C /* Services */,
 				3F7C18E32B77AAE400304EB0 /* ViewControllers */,
@@ -144,6 +147,7 @@
 				3F7C18E72B77AB1600304EB0 /* CafeList */,
 				3FF27F182B78CB5A00CC1EA5 /* Map */,
 				3FEA886E2B7A4A6F00F550B0 /* Menu */,
+				3F8FDEC92B7E37F800BE9EEE /* Order */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -219,6 +223,7 @@
 		3F81364C2B7646C700F4D97C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3F28C47C2B7D00B700D95734 /* CoreData */,
 				3F81364D2B7646D400F4D97C /* ApiService.swift */,
 			);
 			path = Services;
@@ -233,6 +238,15 @@
 				3FEA88712B7A544900F550B0 /* Product.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3F8FDEC92B7E37F800BE9EEE /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				3F8FDECA2B7E382900BE9EEE /* OrderViewController.swift */,
+				3F8FDECC2B7E406300BE9EEE /* OrderTableViewCell.swift */,
+			);
+			path = Order;
 			sourceTree = "<group>";
 		};
 		3FEA886E2B7A4A6F00F550B0 /* Menu */ = {
@@ -419,6 +433,8 @@
 				3F81364E2B7646D400F4D97C /* ApiService.swift in Sources */,
 				3F8136562B764C3E00F4D97C /* AuthResponse.swift in Sources */,
 				3F0A2F292B75FA3C00F7C8CF /* SceneDelegate.swift in Sources */,
+				3F8FDECD2B7E406300BE9EEE /* OrderTableViewCell.swift in Sources */,
+				3F8FDECB2B7E382900BE9EEE /* OrderViewController.swift in Sources */,
 				3F7C18DE2B779B9700304EB0 /* LoginViewController.swift in Sources */,
 				3F8FDEC82B7E12A600BE9EEE /* ProductOrder+CoreDataClass.swift in Sources */,
 				3FF27F1A2B78CB8000CC1EA5 /* MapViewController.swift in Sources */,

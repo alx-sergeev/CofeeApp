@@ -13,10 +13,10 @@ class ProductCollectionViewCell: UICollectionViewCell {
     private let coreDataManager = CoreDataManager.shared
     private var product: Product?
     
+    
     private let vStack = UIStackView()
     
     let imageView = UIImageView()
-    
     private let imageHeight = 137
     
     private let nameLabel = UILabel()
@@ -102,7 +102,7 @@ extension ProductCollectionViewCell {
 // MARK: - Setup actions
 extension ProductCollectionViewCell {
     private func setupViews() {
-        addViews(vStack)
+        addSubview(vStack)
         
         vStack.addArrangedSubview(imageView)
         vStack.addArrangedSubview(nameLabel)
@@ -124,9 +124,9 @@ extension ProductCollectionViewCell {
         }
         
         imageView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.leading.equalToSuperview()
+            make.top.equalTo(vStack.snp.top)
+            make.trailing.equalTo(vStack.snp.trailing)
+            make.leading.equalTo(vStack.snp.leading)
             make.height.equalTo(imageHeight)
         }
         
@@ -138,12 +138,6 @@ extension ProductCollectionViewCell {
         hBottomStack.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(10)
             make.trailing.equalToSuperview().inset(10)
-        }
-        
-        cntHStack.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
         }
     }
     
