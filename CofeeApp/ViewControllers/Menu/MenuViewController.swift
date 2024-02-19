@@ -46,6 +46,11 @@ class MenuViewController: BaseViewController {
         orderButton.addTarget(self, action: #selector(orderButtonPressed), for: .touchUpInside)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        collectionView.reloadData()
+    }
     
     private func getMenu() {
         guard let id = cafeId else { return }

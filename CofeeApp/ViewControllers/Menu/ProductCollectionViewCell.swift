@@ -14,14 +14,15 @@ class ProductCollectionViewCell: UICollectionViewCell {
     private var product: Product?
     
     
-    private let vStack = UIStackView()
+    private let mainVStack = UIStackView()
+    private let bottomVStack = UIStackView()
     
     let imageView = UIImageView()
     private let imageHeight = 137
     
     private let nameLabel = UILabel()
     
-    private let hBottomStack = UIStackView()
+    private let bottomHStack = UIStackView()
     private let priceLabel = UILabel()
 
     private let cntHStack = UIStackView()
@@ -102,14 +103,15 @@ extension ProductCollectionViewCell {
 // MARK: - Setup actions
 extension ProductCollectionViewCell {
     private func setupViews() {
-        addSubview(vStack)
+        addViews(mainVStack)
         
-        vStack.addArrangedSubview(imageView)
-        vStack.addArrangedSubview(nameLabel)
-        vStack.addArrangedSubview(hBottomStack)
-
-        hBottomStack.addArrangedSubview(priceLabel)
-        hBottomStack.addArrangedSubview(cntHStack)
+        mainVStack.addArrangedSubview(imageView)
+        mainVStack.addArrangedSubview(bottomVStack)
+        
+        bottomVStack.addArrangedSubview(nameLabel)
+        bottomVStack.addArrangedSubview(bottomHStack)
+        bottomHStack.addArrangedSubview(priceLabel)
+        bottomHStack.addArrangedSubview(cntHStack)
         
         cntHStack.addArrangedSubview(minusButton)
         cntHStack.addArrangedSubview(cntLabel)
@@ -117,27 +119,22 @@ extension ProductCollectionViewCell {
     }
     
     private func constraintViews() {
-        vStack.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.leading.equalToSuperview()
+        mainVStack.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
         
         imageView.snp.makeConstraints { make in
-            make.top.equalTo(vStack.snp.top)
-            make.trailing.equalTo(vStack.snp.trailing)
-            make.leading.equalTo(vStack.snp.leading)
+            make.top.equalTo(mainVStack.snp.top)
+            make.trailing.equalTo(mainVStack.snp.trailing)
+            make.leading.equalTo(mainVStack.snp.leading)
             make.height.equalTo(imageHeight)
         }
         
-        nameLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(10)
+        bottomVStack.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom)
             make.trailing.equalToSuperview().inset(10)
-        }
-        
-        hBottomStack.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(10)
-            make.trailing.equalToSuperview().inset(10)
+            make.bottom.equalToSuperview()
         }
     }
     
@@ -151,9 +148,12 @@ extension ProductCollectionViewCell {
         layer.shadowOpacity = 0.25
         
         // Vertical stack
-        vStack.axis = .vertical
-        vStack.distribution = .equalSpacing
-        vStack.spacing = 12
+        mainVStack.axis = .vertical
+        mainVStack.distribution = .fillProportionally
+        
+        // Bottom vertical stack
+        bottomVStack.axis = .vertical
+        bottomVStack.distribution = .fillEqually
         
         // Product image
         imageView.contentMode = .scaleAspectFill
@@ -164,8 +164,8 @@ extension ProductCollectionViewCell {
         nameLabel.textColor = .textSecondColor
         
         // Horizontal bottom stack
-        hBottomStack.axis = .horizontal
-        hBottomStack.distribution = .fillEqually
+        bottomHStack.axis = .horizontal
+        bottomHStack.distribution = .fillEqually
         
         // Product price
         priceLabel.font = .systemFont(ofSize: 14, weight: .bold)
