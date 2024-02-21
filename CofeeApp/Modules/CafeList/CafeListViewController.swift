@@ -9,8 +9,13 @@ import UIKit
 import SnapKit
 import CoreLocation
 
+protocol CafeListViewProtocol: AnyObject {
+    func onStartLocation()
+    func onSetItems(_ items: [Cafe])
+}
+
 class CafeListViewController: BaseViewController {
-    private let apiService = ApiService.shared
+    var presenter: CafeListPresenter?
     
     private let locationManager = CLLocationManager()
     private(set) var userLocation: CLLocation? {
@@ -42,14 +47,13 @@ class CafeListViewController: BaseViewController {
         
         title = "Ближайшие кофейни"
         
-        // Location
-        startupLocation()
-        
-        // Get list
-        getLocationList()
+        presenter?.onViewDidLoad()
     }
-    
-    private func startupLocation() {
+}
+
+// MARK: - CafeListViewProtocol
+extension CafeListViewController: CafeListViewProtocol {
+    func onStartLocation() {
         // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
         
@@ -62,22 +66,10 @@ class CafeListViewController: BaseViewController {
         }
     }
     
-    private func getLocationList() {
-        apiService.getLocationList { [weak self] items in
-            self?.items = items
+    func onSetItems(_ items: [Cafe]) {
+        DispatchQueue.main.async {
+            self.items = items
         }
-    }
-    
-    private func getDistanceForCell(item: Cafe) -> String {
-        guard let userLocation = userLocation,
-              let cafeLat = Double(item.point.latitude),
-              let cafeLong = Double(item.point.longitude)
-        else { return "" }
-
-        let cafeLocation = CLLocation(latitude: cafeLat, longitude: cafeLong)
-        let distance = userLocation.distance(from: cafeLocation)
-        
-        return String(format: "%.0f км от вас", distance)
     }
 }
 
@@ -143,7 +135,7 @@ extension CafeListViewController: UITableViewDataSource {
         }
         
         let cafeItem = items[indexPath.row]
-        let distanceString = getDistanceForCell(item: cafeItem)
+        let distanceString = presenter?.onGetDistanceForCell(item: cafeItem, userLocation: userLocation) ?? ""
         cell.configure(item: cafeItem, distance: distanceString)
         
         return cell
@@ -153,11 +145,8 @@ extension CafeListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension CafeListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let menuVC = MenuViewController()
-        let itemSelected = items[indexPath.row]
-        menuVC.cafeId = itemSelected.id
-        
-        navigationController?.pushViewController(menuVC, animated: true)
+        let itemSelectedId = items[indexPath.row].id
+        presenter?.onSelectedRow(with: itemSelectedId)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -169,11 +158,6 @@ extension CafeListViewController: UITableViewDelegate {
 extension CafeListViewController {
     @objc
     private func mapButtonPressed() {
-        guard !items.isEmpty else { return }
-        
-        let mapVC = MapViewController()
-        mapVC.cafeItems = items
-        
-        self.navigationController?.pushViewController(mapVC, animated: true)
+        presenter?.onMapButtonAction(items: items)
     }
 }

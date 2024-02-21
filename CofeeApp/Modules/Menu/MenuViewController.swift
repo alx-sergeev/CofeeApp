@@ -8,8 +8,12 @@
 import UIKit
 import SDWebImage
 
+protocol MenuViewProtocol: AnyObject {
+    func onSetItems(_ items: [Product])
+}
+
 class MenuViewController: BaseViewController {
-    private let apiService = ApiService.shared
+    var presenter: MenuPresenterProtocol?
     
     private let collectionView: UICollectionView = {
         let collectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -37,13 +41,7 @@ class MenuViewController: BaseViewController {
         
         title = "Меню"
         
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: collectionViewCellID)
-        
-        getMenu()
-        
-        orderButton.addTarget(self, action: #selector(orderButtonPressed), for: .touchUpInside)
+        presenter?.onViewDidLoad(cafeId: cafeId)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,12 +49,13 @@ class MenuViewController: BaseViewController {
         
         collectionView.reloadData()
     }
-    
-    private func getMenu() {
-        guard let id = cafeId else { return }
-        
-        apiService.getMenuByID(id) { [weak self] products in
-            self?.items = products
+}
+
+// MARK: - MenuViewProtocol
+extension MenuViewController: MenuViewProtocol {
+    func onSetItems(_ items: [Product]) {
+        DispatchQueue.main.async {
+            self.items = items
         }
     }
 }
@@ -91,6 +90,11 @@ extension MenuViewController {
         super.configureAppearance()
         
         collectionView.backgroundColor = .white
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: collectionViewCellID)
+        
+        orderButton.addTarget(self, action: #selector(orderButtonPressed), for: .touchUpInside)
     }
 }
 
@@ -146,7 +150,6 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
 extension MenuViewController {
     @objc
     private func orderButtonPressed() {
-        let orderVC = OrderViewController()
-        self.navigationController?.pushViewController(orderVC, animated: true)
+        presenter?.onOrderButtonAction()
     }
 }

@@ -7,14 +7,17 @@
 
 import UIKit
 
+protocol OrderViewProtocol: AnyObject {
+    func onSetItems(_ items: [Product])
+}
+
 // MARK: - Protocol OrderViewControllerDelegate
 protocol OrderViewControllerDelegate: AnyObject {
     func deleteRowAction(itemId: Int)
 }
 
-
 class OrderViewController: BaseViewController {
-    private let coreDataManager = CoreDataManager.shared
+    var presenter: OrderPresenter?
     
     private let tableView = UITableView()
     private let cellID = "orderItemCell"
@@ -42,17 +45,16 @@ class OrderViewController: BaseViewController {
         
         title = "Ваш заказ"
         
-        getProductList()
+        presenter?.onViewDidLoad()
     }
+}
 
-    
-    private func getProductList() {
-        self.items = coreDataManager.fetchItems()
-            .map { entity in
-                let id = Int(truncatingIfNeeded: entity.id)
-                let price = Int(truncatingIfNeeded: entity.price)
-                return Product(id: id, name: entity.name, imageURL: nil, price: price)
-            }
+// MARK: - OrderViewProtocol
+extension OrderViewController: OrderViewProtocol {
+    func onSetItems(_ items: [Product]) {
+        DispatchQueue.main.async {
+            self.items = items
+        }
     }
 }
 
@@ -147,7 +149,7 @@ extension OrderViewController: UITableViewDelegate {
 extension OrderViewController {
     @objc
     private func payButtonPressed() {
-        print("Оплата заказа")
+        presenter?.onPayButtonAction()
     }
 }
 

@@ -9,7 +9,12 @@ import UIKit
 import SnapKit
 import YandexMapsMobile
 
+protocol MapViewProtocol: AnyObject {
+}
+
 class MapViewController: BaseViewController {
+    var presenter: MapPresenter?
+    
     lazy var mapView: YMKMapView = YMKMapView(frame: view.bounds)
     
     var cafeItems: [Cafe] = []
@@ -53,7 +58,7 @@ class MapViewController: BaseViewController {
             let placemark = map.mapObjects.addPlacemark()
             placemark.geometry = element.1
             placemark.setIconWith(image)
-            placemark.setIconStyleWith(.init(anchor: nil, rotationType: nil, zIndex: nil, flat: nil, visible: nil, scale: 3, tappableArea: nil))
+            placemark.setIconStyleWith(.init(anchor: nil, rotationType: nil, zIndex: nil, flat: nil, visible: nil, scale: 1, tappableArea: nil))
 
             placemark.setTextWithText(
                 element.0.name,
@@ -74,6 +79,11 @@ class MapViewController: BaseViewController {
 
         map.move(with: position)
     }
+    
+}
+
+// MARK: - MapViewController
+extension MapViewController: MapViewProtocol {
     
 }
 

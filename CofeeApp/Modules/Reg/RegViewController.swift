@@ -1,16 +1,19 @@
 //
-//  LoginViewController.swift
+//  RegViewController.swift
 //  CofeeApp
 //
-//  Created by Сергеев Александр on 10.02.2024.
+//  Created by Сергеев Александр on 09.02.2024.
 //
 
 import UIKit
 import SnapKit
 
-class LoginViewController: BaseViewController {
-    
-    private let apiService = ApiService.shared
+protocol RegViewProtocol: AnyObject {
+    func startup()
+}
+
+class RegViewController: BaseViewController {
+    var presenter: RegPresenterProtocol?
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -61,25 +64,50 @@ class LoginViewController: BaseViewController {
     
     private let pswTextField = TextFieldWithPadding(isSecure: true)
     
-    private let submitButton: UIButton = .createButton(title: "Войти")
+    // Psw repeat
+    private let repeatPswStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        
+        return stackView
+    }()
+    
+    private let repeatPswLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Повторите пароль"
+        label.font = .systemFont(ofSize: 15)
+        label.textColor = .textDefaultColor
+        
+        return label
+    }()
+    
+    private let repeatPswTextField = TextFieldWithPadding(isSecure: true)
+    
+    private let submitButton: UIButton = .createButton(title: "Регистрация")
     private let textFieldHeight = 47
     private let submitButtonHeight = 48
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Вход"
+        title = "Регистрация"
         
-        startup()
+        presenter?.onViewDidLoad()
     }
-    
-    private func startup() {
+}
+
+// MARK: - RegViewProtocol
+extension RegViewController: RegViewProtocol {
+    func startup() {
         // Form
         emailTextField.delegate = self
         pswTextField.delegate = self
+        repeatPswTextField.delegate = self
+        
         submitButton.addTarget(self, action: #selector(submitButtonPressed), for: .touchUpInside)
-        let _ = validateForm()
+        submitButton.isEnabled = false
         
         // Gesture
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -88,14 +116,15 @@ class LoginViewController: BaseViewController {
 }
 
 // MARK: - Setup actions
-extension LoginViewController {
+extension RegViewController {
     override func setupViews() {
         super.setupViews()
         
-        view.addSubview(stackView)
+        view.addViews(stackView)
         
         stackView.addArrangedSubview(emailStackView)
         stackView.addArrangedSubview(pswStackView)
+        stackView.addArrangedSubview(repeatPswStackView)
         stackView.addArrangedSubview(submitButton)
         
         emailStackView.addArrangedSubview(emailLabel)
@@ -103,13 +132,16 @@ extension LoginViewController {
         
         pswStackView.addArrangedSubview(pswLabel)
         pswStackView.addArrangedSubview(pswTextField)
+        
+        repeatPswStackView.addArrangedSubview(repeatPswLabel)
+        repeatPswStackView.addArrangedSubview(repeatPswTextField)
     }
     
     override func constraintViews() {
         super.constraintViews()
         
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(150)
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(150)
             make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).inset(20)
             make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).inset(20)
         }
@@ -121,7 +153,11 @@ extension LoginViewController {
         pswTextField.snp.makeConstraints { make in
             make.height.equalTo(textFieldHeight)
         }
-
+        
+        repeatPswTextField.snp.makeConstraints { make in
+            make.height.equalTo(textFieldHeight)
+        }
+        
         submitButton.snp.makeConstraints { make in
             make.height.equalTo(submitButtonHeight)
         }
@@ -129,18 +165,15 @@ extension LoginViewController {
 }
 
 // MARK: - Additional actions
-extension LoginViewController {
+extension RegViewController {
     @objc
     private func submitButtonPressed() {
-        guard
-            validateForm(),
-            let login = emailTextField.text,
-            let psw = pswTextField.text
-        else { return }
+        guard let validForm = presenter?.onValidateForm(email: emailTextField.text, psw: pswTextField.text, repeatPsw: repeatPswTextField.text) else {
+            return
+        }
         
-        apiService.loginAction(login: login, psw: psw) { [weak self] _ in
-            let cafeListVC = CafeListViewController()
-            self?.navigationController?.pushViewController(cafeListVC, animated: true)
+        if validForm {
+            presenter?.onSubmitAction(login: emailTextField.text, psw: pswTextField.text)
         }
     }
     
@@ -151,24 +184,10 @@ extension LoginViewController {
 }
 
 // MARK: - UITextFieldDelegate
-extension LoginViewController: UITextFieldDelegate {
-    private func validateForm() -> Bool {
-        guard let email = emailTextField.text, let psw = pswTextField.text else {
-            submitButton.isEnabled = false
-            return false
-        }
-        
-        if email.isEmpty || psw.isEmpty {
-            submitButton.isEnabled = false
-            return false
-        }
-        
-        submitButton.isEnabled = true
-        return true
-    }
-    
+extension RegViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        let _ = validateForm()
+        let validForm = presenter?.onValidateForm(email: emailTextField.text, psw: pswTextField.text, repeatPsw: repeatPswTextField.text) ?? false
+        submitButton.isEnabled = validForm
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
