@@ -19,11 +19,9 @@
 		3F7C18E22B77AADC00304EB0 /* CafeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C18E12B77AADC00304EB0 /* CafeListViewController.swift */; };
 		3F7C18EC2B77AD6E00304EB0 /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C18EB2B77AD6E00304EB0 /* Cafe.swift */; };
 		3F7C18EE2B77B5F800304EB0 /* CafeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C18ED2B77B5F800304EB0 /* CafeTableViewCell.swift */; };
-		3F8136472B762C3C00F4D97C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3F8136462B762C3C00F4D97C /* SnapKit */; };
 		3F8136492B762C6700F4D97C /* UIView + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8136482B762C6700F4D97C /* UIView + ext.swift */; };
 		3F81364B2B763C5900F4D97C /* TextFieldWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81364A2B763C5900F4D97C /* TextFieldWithPadding.swift */; };
 		3F81364E2B7646D400F4D97C /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81364D2B7646D400F4D97C /* ApiService.swift */; };
-		3F8136512B76477200F4D97C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3F8136502B76477200F4D97C /* Alamofire */; };
 		3F8136542B76484500F4D97C /* AuthParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8136532B76484500F4D97C /* AuthParameters.swift */; };
 		3F8136562B764C3E00F4D97C /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8136552B764C3E00F4D97C /* AuthResponse.swift */; };
 		3F8FDEBD2B7E02FE00BE9EEE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8FDEBC2B7E02FE00BE9EEE /* CoreDataManager.swift */; };
@@ -77,8 +75,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F8136472B762C3C00F4D97C /* SnapKit in Frameworks */,
-				3F8136512B76477200F4D97C /* Alamofire in Frameworks */,
 				60B106C5ABC51570229480B7 /* Pods_CofeeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,8 +291,6 @@
 			);
 			name = CofeeApp;
 			packageProductDependencies = (
-				3F8136462B762C3C00F4D97C /* SnapKit */,
-				3F8136502B76477200F4D97C /* Alamofire */,
 			);
 			productName = CofeeApp;
 			productReference = 3F0A2F232B75FA3C00F7C8CF /* CofeeApp.app */;
@@ -327,8 +321,6 @@
 			);
 			mainGroup = 3F0A2F1A2B75FA3C00F7C8CF;
 			packageReferences = (
-				3F0A2F432B760FE800F7C8CF /* XCRemoteSwiftPackageReference "SnapKit" */,
-				3F81364F2B76477200F4D97C /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 3F0A2F242B75FA3C00F7C8CF /* Products */;
 			projectDirPath = "";
@@ -658,38 +650,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		3F0A2F432B760FE800F7C8CF /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
-		3F81364F2B76477200F4D97C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.8.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		3F8136462B762C3C00F4D97C /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3F0A2F432B760FE800F7C8CF /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		3F8136502B76477200F4D97C /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3F81364F2B76477200F4D97C /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		3F8FDEBE2B7E035000BE9EEE /* CoreDataModel.xcdatamodeld */ = {
