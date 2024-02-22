@@ -7,22 +7,13 @@
 
 import UIKit
 import SnapKit
-import CoreLocation
 
 protocol CafeListViewProtocol: AnyObject {
-    func onStartLocation()
     func onSetItems(_ items: [Cafe])
 }
 
 class CafeListViewController: BaseViewController {
     var presenter: CafeListPresenter?
-    
-    private let locationManager = CLLocationManager()
-    private(set) var userLocation: CLLocation? {
-        didSet {
-            tableView.reloadData()
-        }
-    }
     
     private let tableView = UITableView()
     private let cellID = "cafeCell"
@@ -53,19 +44,6 @@ class CafeListViewController: BaseViewController {
 
 // MARK: - CafeListViewProtocol
 extension CafeListViewController: CafeListViewProtocol {
-    func onStartLocation() {
-        // For use in foreground
-        self.locationManager.requestWhenInUseAuthorization()
-        
-        DispatchQueue.global().async { [weak self] in
-            if CLLocationManager.locationServicesEnabled() {
-                self?.locationManager.delegate = self
-                self?.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-                self?.locationManager.startUpdatingLocation()
-            }
-        }
-    }
-    
     func onSetItems(_ items: [Cafe]) {
         DispatchQueue.main.async {
             self.items = items
@@ -114,15 +92,6 @@ extension CafeListViewController {
     }
 }
 
-// MARK: - CLLocationManagerDelegate
-extension CafeListViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        
-        userLocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
-    }
-}
-
 // MARK: - UITableViewDataSource
 extension CafeListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -135,7 +104,7 @@ extension CafeListViewController: UITableViewDataSource {
         }
         
         let cafeItem = items[indexPath.row]
-        let distanceString = presenter?.onGetDistanceForCell(item: cafeItem, userLocation: userLocation) ?? ""
+        let distanceString = presenter?.onGetDistanceForCell(item: cafeItem) ?? ""
         cell.configure(item: cafeItem, distance: distanceString)
         
         return cell

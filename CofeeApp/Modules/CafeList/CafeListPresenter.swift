@@ -5,11 +5,10 @@
 //
 
 import Foundation
-import CoreLocation
 
 protocol CafeListPresenterProtocol: AnyObject {
     func onViewDidLoad()
-    func onGetDistanceForCell(item: Cafe, userLocation: CLLocation?) -> String?
+    func onGetDistanceForCell(item: Cafe) -> String?
     func onSelectedRow(with id: Int)
     func onMapButtonAction(items: [Cafe])
 }
@@ -22,15 +21,13 @@ class CafeListPresenter {
 
 extension CafeListPresenter: CafeListPresenterProtocol {
     func onViewDidLoad() {
-        view?.onStartLocation()
         interactor?.onFetchLocations { [weak self] items in
             self?.view?.onSetItems(items)
         }
     }
     
-    func onGetDistanceForCell(item: Cafe, userLocation: CLLocation?) -> String? {
-        guard let userLocation = userLocation else { return nil }
-        return interactor?.onGetDistance(item: item, userLocation: userLocation)
+    func onGetDistanceForCell(item: Cafe) -> String? {
+        return interactor?.onGetDistance(item: item)
     }
     
     func onSelectedRow(with id: Int) {

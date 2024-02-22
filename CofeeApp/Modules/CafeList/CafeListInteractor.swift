@@ -8,13 +8,14 @@ import CoreLocation
 
 protocol CafeListInteractorProtocol: AnyObject {
     func onFetchLocations(completion: @escaping ([Cafe]) -> ())
-    func onGetDistance(item: Cafe, userLocation: CLLocation) -> String
+    func onGetDistance(item: Cafe) -> String
 }
 
 class CafeListInteractor {
     weak var presenter: CafeListPresenterProtocol?
     
     private let apiService = ApiService.shared
+    private let locationDataManager = LocationDataManager.shared
 }
 
 extension CafeListInteractor: CafeListInteractorProtocol {
@@ -24,8 +25,12 @@ extension CafeListInteractor: CafeListInteractorProtocol {
         }
     }
     
-    func onGetDistance(item: Cafe, userLocation: CLLocation) -> String {
-        guard let cafeLat = Double(item.point.latitude), let cafeLong = Double(item.point.longitude) else {
+    func onGetDistance(item: Cafe) -> String {
+        guard
+            let userLocation = locationDataManager.currentLocation,
+            let cafeLat = Double(item.point.latitude),
+            let cafeLong = Double(item.point.longitude)
+        else {
             return ""
         }
 
