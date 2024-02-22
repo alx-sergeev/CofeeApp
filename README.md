@@ -16,5 +16,4 @@ Run the following command:
 
 ```
 $ pod install
-
 ```
