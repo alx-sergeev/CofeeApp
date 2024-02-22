@@ -12,12 +12,7 @@ import CoreLocation
 class CafeListViewController: BaseViewController {
     private let apiService = ApiService.shared
     
-    private let locationManager = CLLocationManager()
-    private(set) var userLocation: CLLocation? {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    private let locationDataManager = LocationDataManager.shared
     
     private let tableView = UITableView()
     private let cellID = "cafeCell"
@@ -42,25 +37,10 @@ class CafeListViewController: BaseViewController {
         
         title = "Ближайшие кофейни"
         
-        // Location
-        startupLocation()
-        
         // Get list
         getLocationList()
     }
     
-    private func startupLocation() {
-        // For use in foreground
-        self.locationManager.requestWhenInUseAuthorization()
-        
-        DispatchQueue.global().async { [weak self] in
-            if CLLocationManager.locationServicesEnabled() {
-                self?.locationManager.delegate = self
-                self?.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-                self?.locationManager.startUpdatingLocation()
-            }
-        }
-    }
     
     private func getLocationList() {
         apiService.getLocationList { [weak self] items in
@@ -69,7 +49,7 @@ class CafeListViewController: BaseViewController {
     }
     
     private func getDistanceForCell(item: Cafe) -> String {
-        guard let userLocation = userLocation,
+        guard let userLocation = locationDataManager.currentLocation,
               let cafeLat = Double(item.point.latitude),
               let cafeLong = Double(item.point.longitude)
         else {
@@ -128,15 +108,6 @@ extension CafeListViewController {
         
         // Button
         mapButton.addTarget(self, action: #selector(mapButtonPressed), for: .touchUpInside)
-    }
-}
-
-// MARK: - CLLocationManagerDelegate
-extension CafeListViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        
-        userLocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
     }
 }
 

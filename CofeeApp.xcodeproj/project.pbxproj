@@ -33,6 +33,7 @@
 		3FEA88722B7A544900F550B0 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEA88712B7A544900F550B0 /* Product.swift */; };
 		3FEA88742B7A56F200F550B0 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEA88732B7A56F200F550B0 /* ProductCollectionViewCell.swift */; };
 		3FF27F1A2B78CB8000CC1EA5 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF27F192B78CB7F00CC1EA5 /* MapViewController.swift */; };
+		3FFA0A242B8756E8009C2F45 /* LocationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFA0A232B8756E8009C2F45 /* LocationDataManager.swift */; };
 		60B106C5ABC51570229480B7 /* Pods_CofeeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFCCF289174E1320F5E8E508 /* Pods_CofeeApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		3FEA88712B7A544900F550B0 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		3FEA88732B7A56F200F550B0 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		3FF27F192B78CB7F00CC1EA5 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		3FFA0A232B8756E8009C2F45 /* LocationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataManager.swift; sourceTree = "<group>"; };
 		5E73076CAA52E885C7A7C7AA /* Pods-CofeeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CofeeApp.release.xcconfig"; path = "Target Support Files/Pods-CofeeApp/Pods-CofeeApp.release.xcconfig"; sourceTree = "<group>"; };
 		E3F1C1A85477D84851860235 /* Pods-CofeeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CofeeApp.debug.xcconfig"; path = "Target Support Files/Pods-CofeeApp/Pods-CofeeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EFCCF289174E1320F5E8E508 /* Pods_CofeeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CofeeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,6 +223,7 @@
 			children = (
 				3F28C47C2B7D00B700D95734 /* CoreData */,
 				3F81364D2B7646D400F4D97C /* ApiService.swift */,
+				3FFA0A232B8756E8009C2F45 /* LocationDataManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				3F8FDEC82B7E12A600BE9EEE /* ProductOrder+CoreDataClass.swift in Sources */,
 				3FF27F1A2B78CB8000CC1EA5 /* MapViewController.swift in Sources */,
 				3FEA88742B7A56F200F550B0 /* ProductCollectionViewCell.swift in Sources */,
+				3FFA0A242B8756E8009C2F45 /* LocationDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
