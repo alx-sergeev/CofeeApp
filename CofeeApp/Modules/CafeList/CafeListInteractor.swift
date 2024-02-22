@@ -30,8 +30,15 @@ extension CafeListInteractor: CafeListInteractorProtocol {
         }
 
         let cafeLocation = CLLocation(latitude: cafeLat, longitude: cafeLong)
-        let distance = userLocation.distance(from: cafeLocation)
+        let distanceM = userLocation.distance(from: cafeLocation)
         
-        return String(format: "%.0f км от вас", distance)
+        // В метрах
+        if distanceM < 1000 {
+            return String(format: "%.0f м от вас", distanceM)
+        }
+        
+        // В километрах
+        let distanceKM: Double = distanceM / 1000
+        return String(format: "%.0f км от вас", distanceKM)
     }
 }
