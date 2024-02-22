@@ -53,7 +53,7 @@ class MapViewController: BaseViewController {
             let placemark = map.mapObjects.addPlacemark()
             placemark.geometry = element.1
             placemark.setIconWith(image)
-            placemark.setIconStyleWith(.init(anchor: nil, rotationType: nil, zIndex: nil, flat: nil, visible: nil, scale: 3, tappableArea: nil))
+            placemark.setIconStyleWith(.init(anchor: nil, rotationType: nil, zIndex: nil, flat: nil, visible: nil, scale: 1, tappableArea: nil))
 
             placemark.setTextWithText(
                 element.0.name,
